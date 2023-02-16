@@ -20,8 +20,8 @@ if __name__ == '__main__':
     baseline_container_name = f"test-baseline-{args.branch}-linux"
     test_container_name = f"test-{args.branch}-{args.sha}-linux"
 
-    print(baseline_container_name)
-    print(test_container_name)
+    print("baseline-container-name: ", baseline_container_name)
+    print("test-container-name: ", test_container_name)
 
     container_list = blob_service_client.list_containers()
 
