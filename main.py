@@ -46,10 +46,10 @@ if __name__ == '__main__':
             test_container_name
         )
 
-    test_img_name = "tudelft-logo"
+    test_img_name = "tudelft_logo"
     test_img_path = "test-img.png"
 
-    baseline_img_name = "tudelft-logo"
+    baseline_img_name = "tudelft_logo"
     baseline_img_path = "baseline.png"
 
     test_blob_client = blob_service_client.get_blob_client(
