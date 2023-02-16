@@ -18,14 +18,17 @@ if __name__ == '__main__':
     )
 
     baseline_container_name = f"test-baseline-{args.branch}-linux"
-    test_container_name = f"test-{args.branch}-{args.sha}-linux"
+    test_container_name = f"test-{args.branch}-{args.sha[0:7]}-linux"
 
     print("baseline-container-name: ", baseline_container_name)
     print("test-container-name: ", test_container_name)
 
-    container_list = blob_service_client.list_containers()
+    container_list = list(blob_service_client.list_containers())
+    existing_container = set()
+    for c in container_list:
+        existing_container.add(c.name)
 
-    if baseline_container_name not in container_list:
+    if baseline_container_name not in existing_container:
         baseline_container_client = blob_service_client.create_container(
             baseline_container_name
         )
@@ -34,7 +37,7 @@ if __name__ == '__main__':
             baseline_container_name
         )
 
-    if test_container_name not in container_list:
+    if test_container_name not in existing_container:
         test_container_client = blob_service_client.create_container(
             test_container_name
         )
