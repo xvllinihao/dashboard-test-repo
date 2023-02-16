@@ -28,4 +28,5 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          python -s main.py
+          python -s main.py --branch=${{ github.head_ref || github.ref_name }} \
+            --sha=${{ github.event.pull_request.head.sha || github.sha }}
