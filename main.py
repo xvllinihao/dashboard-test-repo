@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     if test_container_name not in container_list:
         test_container_client = blob_service_client.create_container(
-            baseline_container_name
+            test_container_name
         )
     else:
         test_container_client = blob_service_client.get_container_client(
