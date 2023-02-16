@@ -17,8 +17,8 @@ if __name__ == '__main__':
         account_url, azure_access_token
     )
 
-    baseline_container_name = f"baseline-{args.branch}-linux"
-    test_container_name = f"screenshot-{args.branch}-{args.sha}-linux"
+    baseline_container_name = f"test-baseline-{args.branch}-linux"
+    test_container_name = f"test-{args.branch}-{args.sha}-linux"
 
     container_list = blob_service_client.list_containers()
 
