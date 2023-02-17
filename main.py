@@ -18,7 +18,8 @@ if __name__ == '__main__':
         account_url, azure_access_token
     )
 
-    baseline_container_name = f"test-baseline-{args.branch}-linux"
+    branch_name = args.branch.replace("_", "-")
+    baseline_container_name = f"test-baseline-{branch_name}-linux"
     test_container_name = f"test-{args.branch}-{args.sha[0:7]}-linux"
 
     print(f"this is the {args.branch} branch")
