@@ -7,11 +7,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--branch', type=str)
     parser.add_argument('--sha', type=str)
+    parser.add_argument('--account_url', type=str)
 
     args = parser.parse_args()
 
     azure_access_token = DefaultAzureCredential()
-    account_url = "https://visualdiffing.blob.core.windows.net"
+    account_url = args.account_url
 
     blob_service_client = BlobServiceClient(
         account_url, azure_access_token
